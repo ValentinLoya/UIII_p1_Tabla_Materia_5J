@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+
+<div class="row">
+<div class="col-md-4 offset-md-4">
+<!-- la targeta card-->
+
+<div class="card"><!--Targeta-->
+    <div class="card-body"><!--Formulario-->
+
+    <form action="/editarCliente/" method="POST">{% csrf_token %}
+
+        <div class="form-group">
+        <input type="text" id="txtcodigo" name="txtcodigo" class="form-control"
+        value="{{misclientes.codigo}}" minlength="4" maxlength="6" readonly required>
+        </div>
+
+        <div class="form-group py-3">
+        <input type="text" id="txtnombre" name="txtnombre" class="form-control"
+        value="{{misclientes.nombre}}" maxlength="100" required>
+        </div>
+
+        <div class="form-group">
+        <input type="text" id="numcreditos" name="numcreditos" class="form-control"
+        value="{{misclientes.credito}}" minlength="1" maxlength="9" required>
+        </div>
+
+        <div class="form-group py-2">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+
+    </form><!--Formulario-->
+    </div>
+
+<!-- fin de la targeta card-->
+</div><!--Columna-->
+
+</div><!--la fila-->
+
+{% endblock %}
